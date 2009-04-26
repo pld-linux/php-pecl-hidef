@@ -1,11 +1,11 @@
 %define		_modname	hidef
 %define		_status		alpha
 Summary:	%{_modname} - Constants for real
-Summary(pl.UTF-8):	%{_modname} -
+Summary(pl.UTF-8):	%{_modname} - mechanizm definiowana stałych
 Name:		php-pecl-%{_modname}
 Version:	0.1.1
 Release:	1
-License:	PHP 2.02
+License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	373ec1e738be357fd468577058edaec3
