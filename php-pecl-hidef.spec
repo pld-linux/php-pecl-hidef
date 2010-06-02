@@ -1,14 +1,14 @@
-%define		_modname	hidef
-%define		_status		alpha
-Summary:	%{_modname} - Constants for real
-Summary(pl.UTF-8):	%{_modname} - mechanizm definiowana stałych
-Name:		php-pecl-%{_modname}
-Version:	0.1.2
+%define		modname	hidef
+%define		status		beta
+Summary:	%{modname} - Constants for real
+Summary(pl.UTF-8):	%{modname} - mechanizm definiowana stałych
+Name:		php-pecl-%{modname}
+Version:	0.1.4
 Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	d99a9091ebaab9b0ba8efeaccaf261ca
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
+# Source0-md5:	e508ff88162b5d7848ac3068ebe60fe3
 URL:		http://pecl.php.net/package/hidef/
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.344
@@ -21,20 +21,20 @@ Allow definition of user defined constants in simple ini files, which
 are then processed like internal constants, without any of the usual
 performance penalties.
 
-In PECL status of this extension is: %{_status}.
+In PECL status of this extension is: %{status}.
 
 %description -l pl.UTF-8
 Rozszerzenie to pozwala na zdefiniowanie stałych w prostym pliku ini.
 Stałe te są później przetwarzane tak jak wewnętrzne stałe PHP, bez
 typowych spowolnień wydajności.
 
-To rozszerzenie ma w PECL status: %{_status}.
+To rozszerzenie ma w PECL status: %{status}.
 
 %prep
-%setup -q -c
+%setup -qc
+mv %{modname}-%{version}/* .
 
 %build
-cd %{_modname}-%{version}
 phpize
 %configure
 %{__make}
@@ -44,12 +44,11 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
 
 %{__make} install \
-	-C %{_modname}-%{version} \
-	INSTALL_ROOT=$RPM_BUILD_ROOT \
-	EXTENSION_DIR=%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_modname}.so
+	EXTENSION_DIR=%{php_extensiondir} \
+	INSTALL_ROOT=$RPM_BUILD_ROOT
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{modname}.so
 EOF
 
 %clean
@@ -65,5 +64,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%doc INSTALL CREDITS
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{modname}.so
