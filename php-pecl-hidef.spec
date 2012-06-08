@@ -3,12 +3,12 @@
 Summary:	%{modname} - Constants for real
 Summary(pl.UTF-8):	%{modname} - mechanizm definiowana stałych
 Name:		php-pecl-%{modname}
-Version:	0.1.9
+Version:	0.1.11
 Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
-# Source0-md5:	8fc64e2b30c7868ae83fdbaaf1b4b11b
+# Source0-md5:	e2bef447832d8c7f6237a27e36242f7c
 URL:		http://pecl.php.net/package/hidef/
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.344
