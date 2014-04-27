@@ -5,7 +5,7 @@ Summary:	%{modname} - Constants for real
 Summary(pl.UTF-8):	%{modname} - mechanizm definiowana stałych
 Name:		%{php_name}-pecl-%{modname}
 Version:	0.1.13
-Release:	2
+Release:	3
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
